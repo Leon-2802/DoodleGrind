@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DoodleGrind
 {
-    class NotificationHandler
+    internal class NotificationHandler
     {
+        public NotificationHandler() 
+        {
+    
+        }
     }
 }

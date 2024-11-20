@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:DoodleGrind"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Window.Resources>
+        <!-- Style that will be applied to all buttons for this window -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Orange" />
+            <Setter Property="BorderBrush" Value="Crimson" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <TextBox DockPanel.Dock="Top">Dock = "Top"</TextBox>
+        <TextBox DockPanel.Dock="Bottom">Dock = "Bottom"</TextBox>
+        <Button DockPanel.Dock="Left" Name="button" Click="button_Click" Cursor="Hand">Click Me!</Button>
+        <TextBox Background="White">This TextBox "fills" the remaining space.</TextBox>
+    </DockPanel>
 </Window>
