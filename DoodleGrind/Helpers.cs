@@ -9,13 +9,13 @@ namespace DoodleGrind
 {
     internal static class Helpers
     {
-        public static string? ReadFileToString(string relativeFilePath)
+        public static string? ReadFileToString(string fullPath)
         {
             try
             {
+                // before deploying, check for how to handle path in deployed app
                 //string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativeFilePath);
-                string fullPath = Path.GetFullPath(relativeFilePath);
-                Console.WriteLine(fullPath);
+                //System.Diagnostics.Debug.WriteLine(fullPath);
                 string fileContent = File.ReadAllText(fullPath);
 
                 // Remove trailing whitespaces and new lines

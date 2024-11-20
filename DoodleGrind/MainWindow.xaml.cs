@@ -24,8 +24,15 @@ namespace DoodleGrind
         async void button_Click(object sender, RoutedEventArgs e)
         {
             // Show message box when button is clicked.
-            string test = await AIChat.SendChat();
-            MessageBox.Show("AI Response: " + test);
+            try
+            {
+                string test = await AIChat.SendChat("Please provide three ideas for drawing a doodle matching the topic plants");
+                MessageBox.Show("AI Response: " + test);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("An error occured: " + ex.Message);
+            }
         }
 
     }
