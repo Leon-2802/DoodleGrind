@@ -16,10 +16,10 @@
             <Setter Property="Margin" Value="5" />
         </Style>
     </Window.Resources>
-    <DockPanel>
+    <DockPanel x:Name="MainDock">
         <TextBox DockPanel.Dock="Top">Dock = "Top"</TextBox>
         <TextBox DockPanel.Dock="Bottom">Dock = "Bottom"</TextBox>
-        <Button DockPanel.Dock="Left" Name="button" Click="button_Click" Cursor="Hand">Click Me!</Button>
+        <Button DockPanel.Dock="Left" Name="generate_idea_button" Click="GenerateIdea_btn" Cursor="Hand">Click Me!</Button>
         <TextBox Background="White">This TextBox "fills" the remaining space.</TextBox>
     </DockPanel>
 </Window>

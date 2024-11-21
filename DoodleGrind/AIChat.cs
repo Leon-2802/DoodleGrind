@@ -1,12 +1,7 @@
-﻿using Microsoft.CSharp.RuntimeBinder;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace DoodleGrind
 {
@@ -16,11 +11,9 @@ namespace DoodleGrind
         {
             // Define the API endpoint and the authorization key
             string url = "https://api.cohere.com/v2/chat";
-            string? loadedKey = Helpers.ReadFileToString("C:\\Users\\Le_go\\Documents\\GitHub\\DoodleGrind\\DoodleGrind\\COHERE_API_KEY.txt"); // Load API key
-            if (loadedKey == null) // check if this is good practice (probably not)
-            {
-                throw new ArgumentNullException("Error when loading API key");
-            }
+            string projectRootPath = Helpers.GetProjectRootPath();
+            string pathToKey = Path.Combine(projectRootPath, "COHERE_API_KEY.txt");
+            string? loadedKey = Helpers.ReadFileToString(pathToKey) ?? throw new ArgumentNullException("Error when loading API key"); // Load API key
             string apiKey = loadedKey; // Replace with your actual API key
 
             // Create the JSON data
@@ -34,7 +27,7 @@ namespace DoodleGrind
             };
 
             // Serialize the JSON data to a string
-            string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
+            string jsonString = JsonConvert.SerializeObject(jsonData);
 
             // Create an instance of HttpClient
             using (HttpClient client = new HttpClient())

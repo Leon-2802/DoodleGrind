@@ -44,5 +44,11 @@ namespace DoodleGrind
                 return null;
             }
         }
+        public static string GetProjectRootPath()
+        {
+            string basePath = AppContext.BaseDirectory;
+            return Path.GetFullPath(Path.Combine(basePath, @"..\..\.."));
+        }
     }
+
 }

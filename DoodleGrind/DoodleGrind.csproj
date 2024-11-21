@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Syn.WordNet" Version="1.0.5" />
   </ItemGroup>
 
 </Project>
