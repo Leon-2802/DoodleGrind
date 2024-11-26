@@ -63,8 +63,23 @@ namespace DoodleGrind
 
         private async void Ai_chat_btn(object sender, RoutedEventArgs e)
         {
-            string test = await AIChat.SendChat("Please give me drawing inspiration matching the provided words: " + ideas);
-            MessageBox.Show("AI Response: " + test);
+            try
+            {
+                string test = await AIChat.SendChat("Please give me drawing inspiration matching the provided words: " + ideas);
+                MessageBox.Show("AI Response: " + test);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("An invalid operation error occured: " + ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show("Argument Null Exception: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occured: " + ex.Message);
+            }
         }
 
     }
